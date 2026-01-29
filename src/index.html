@@ -24,134 +24,163 @@
 
 <main>
 
+<!-- HERO -->
 <section id="home" class="hero">
-  <div>
-    <h1>Самусев Даниил</h1>
-    <p class="typing"></p>
-    <p>
-      Я студент и начинающий разработчик, интересующийся веб-технологиями,
-      desktop-разработкой и алгоритмами.
-    </p>
-    <p>
-      Люблю создавать современные интерфейсы и постоянно развиваюсь в IT.
-    </p>
-    <a href="#contacts" class="btn">Связаться со мной</a>
-  </div>
+  <div class="container">
+    <div class="hero-text">
+      <h1>Самусев Даниил</h1>
+      <p class="typing"></p>
 
-  <img src="images/avatar.png" alt="Аватар">
+      <p>
+        Я студент и начинающий разработчик, интересующийся веб-технологиями,
+        desktop-разработкой и алгоритмами.
+      </p>
+
+      <p>
+        Люблю создавать современные интерфейсы и постоянно развиваюсь в IT.
+      </p>
+
+      <a href="#contacts" class="btn">Связаться со мной</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/avatar.png" alt="Аватар">
+    </div>
+  </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
-  <h2>Навыки</h2>
+  <div class="container">
+    <h2>Навыки</h2>
 
-  <div class="skill">
-    <span>Python — 70%</span>
-    <div class="bar"><div style="width:70%"></div></div>
-  </div>
-  <div class="skill">
-    <span>Java — 60%</span>
-    <div class="bar"><div style="width:60%"></div></div>
-  </div>
-  <div class="skill">
-    <span>C — 50%</span>
-    <div class="bar"><div style="width:50%"></div></div>
-  </div>
-  <div class="skill">
-    <span>C++ — 40%</span>
-    <div class="bar"><div style="width:40%"></div></div>
-  </div>
-  <div class="skill">
-    <span>JavaScript — 10%</span>
-    <div class="bar"><div style="width:10%"></div></div>
-  </div>
+    <div class="skill">
+      <span>Python — 70%</span>
+      <div class="bar"><div style="width:70%"></div></div>
+    </div>
 
-  <ul class="tags">
-    <li>Git</li>
-    <li>Linux</li>
-    <li>Qt</li>
-    <li>MySQL</li>
-    <li>ООП</li>
-    <li>HTTP</li>
-  </ul>
+    <div class="skill">
+      <span>Java — 60%</span>
+      <div class="bar"><div style="width:60%"></div></div>
+    </div>
+
+    <div class="skill">
+      <span>C — 50%</span>
+      <div class="bar"><div style="width:50%"></div></div>
+    </div>
+
+    <div class="skill">
+      <span>C++ — 40%</span>
+      <div class="bar"><div style="width:40%"></div></div>
+    </div>
+
+    <div class="skill">
+      <span>JavaScript — 10%</span>
+      <div class="bar"><div style="width:10%"></div></div>
+    </div>
+
+    <ul class="tags">
+      <li>Git</li>
+      <li>Linux</li>
+      <li>Qt</li>
+      <li>MySQL</li>
+      <li>ООП</li>
+      <li>HTTP</li>
+    </ul>
+  </div>
 </section>
 
+<!-- EDUCATION -->
 <section id="education">
-  <h2>Образование</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Университет</h3>
-      <p>Бакалавр, Информационные системы</p>
-      <p>2022 — настоящее время</p>
-    </div>
-    <div class="card">
-      <h3>Колледж</h3>
-      <p>Программирование и ВТ</p>
-      <p>2018 — 2022</p>
-    </div>
-  </div>
-</section>
+  <div class="container">
+    <h2>Образование</h2>
 
-<section id="achievements">
-  <h2>Достижения</h2>
-  <div class="cards">
-    <div class="card">🏆 Участие в хакатоне</div>
-    <div class="card">📜 Сертификат Coursera</div>
-    <div class="card">🥇 Олимпиада по программированию</div>
-  </div>
-</section>
+    <div class="cards">
+      <div class="card">
+        <h3>Университет</h3>
+        <p>Бакалавр, Информационные системы</p>
+        <p>2022 — настоящее время</p>
+      </div>
 
-<section id="projects">
-  <h2>Проекты</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Сайт-портфолио</h3>
-      <p>Персональный сайт-портфолио.</p>
-      <p><strong>HTML / CSS / JS</strong></p>
-    </div>
-    <div class="card">
-      <h3>Todo App</h3>
-      <p>Приложение для управления задачами.</p>
-      <p><strong>JavaScript</strong></p>
-    </div>
-    <div class="card">
-      <h3>Desktop App</h3>
-      <p>Qt-приложение.</p>
-      <p><strong>C++ / Qt</strong></p>
-    </div>
-  </div>
-</section>
-
-<section id="contacts">
-  <h2>Связаться со мной</h2>
-
-  <div class="contacts-wrapper">
-
-    <div class="contact-card">
-      <h3>Напишите мне</h3>
-      <form id="contactForm">
-        <input type="text" placeholder="Ваше имя" required>
-        <input type="email" placeholder="Email для ответа" required>
-        <textarea rows="5" placeholder="Сообщение" required></textarea>
-        <button type="submit">Отправить</button>
-        <span id="formStatus"></span>
-      </form>
-    </div>
-
-    <div class="contact-card">
-      <h3>Контакты</h3>
-      <ul class="contact-info">
-        <li>📧 student@example.com</li>
-        <li>📍 Алматы, Казахстан</li>
-        <li>💻 GitHub</li>
-      </ul>
-
-      <div class="socials">
-        <a href="#">🐙</a>
-        <a href="#">✈️</a>
-        <a href="#">🏆</a>
+      <div class="card">
+        <h3>Колледж</h3>
+        <p>Программирование и ВТ</p>
+        <p>2018 — 2022</p>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <h2>Достижения</h2>
+
+    <div class="cards">
+      <div class="card">🏆 Участие в хакатоне</div>
+      <div class="card">📜 Сертификат Coursera</div>
+      <div class="card">🥇 Олимпиада по программированию</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2>Проекты</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Сайт-портфолио</h3>
+        <p>Персональный сайт-портфолио.</p>
+        <p><strong>HTML / CSS / JS</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Todo App</h3>
+        <p>Приложение для управления задачами.</p>
+        <p><strong>JavaScript</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Desktop App</h3>
+        <p>Приложение на Qt.</p>
+        <p><strong>C++ / Qt</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="container">
+    <h2>Контакты</h2>
+
+    <div class="contacts-grid">
+      <div class="contact-box">
+        <h3>Связаться со мной</h3>
+
+        <form id="contactForm">
+          <input type="text" placeholder="Ваше имя" required>
+          <input type="email" placeholder="Email" required>
+          <textarea rows="5" placeholder="Сообщение" required></textarea>
+          <button type="submit">Отправить</button>
+          <span id="formStatus"></span>
+        </form>
+      </div>
+
+      <div class="contact-box">
+        <h3>Контактная информация</h3>
+        <p>📧 student@example.com</p>
+        <p>📍 Алматы, Казахстан</p>
+
+        <div class="socials">
+          <a href="#">GitHub</a>
+          <a href="#">Telegram</a>
+          <a href="#">HackerRank</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

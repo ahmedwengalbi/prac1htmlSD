@@ -1,42 +1,8 @@
-// Typing effect
-const text = "Frontend разработчик | UI дизайнер | Студент";
-let i = 0;
-const typing = document.querySelector(".typing");
-
-function type() {
-  if(i < text.length){
-    typing.textContent += text.charAt(i);
-    i++;
-    setTimeout(type, 60);
-  }
-}
-type();
-
-// Contact form
-const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  status.textContent = "Сообщение отправлено ✔";
-  form.reset();
-});
-
-// Tabs
-const tabs = document.querySelectorAll(".tab-btn");
-const tabContents = document.querySelectorAll(".tab-content");
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-    tabContents.forEach(c => c.classList.remove("active"));
-    document.getElementById(tab.dataset.tab).classList.add("active");
-  });
-});
-
 // ===== CLICKER GAME =====
 let score = 0;
 let time = 30;
 let interval;
+let clickerStarted = false;
 
 const clickBtn = document.getElementById("click-btn");
 const resetBtn = document.getElementById("reset-btn");
@@ -54,65 +20,78 @@ function startClicker() {
     timerEl.textContent = `Время: ${time}`;
     if(time <= 0){
       clearInterval(interval);
+      clickerStarted = false;
       alert(`Время вышло! Ваш счёт: ${score}`);
     }
   }, 1000);
 }
 
 clickBtn.addEventListener("click", () => {
+  if(!clickerStarted){
+    startClicker();
+    clickerStarted = true;
+  }
   score++;
   scoreEl.textContent = score;
 });
+
 resetBtn.addEventListener("click", () => {
+  clearInterval(interval);
+  time = 30;
   score = 0;
+  clickerStarted = false;
   scoreEl.textContent = score;
+  timerEl.textContent = `Время: ${time}`;
 });
 
 // ===== ADVENTURE GAME =====
-const characters = ["рыцарь", "маг", "вор"];
-const locations = ["тёмный лес", "заброшенный замок", "подводное царство"];
-const villains = ["дракон", "колдун", "гоблин"];
 const adventureBtn = document.getElementById("adventure-btn");
 const adventureText = document.getElementById("adventure-text");
 
+const characters = ["рыцарь", "маг", "вор"];
+const locations = ["тёмный лес", "заброшенный замок", "подводное царство"];
+const villains = ["дракон", "колдун", "гоблин"];
+
 adventureBtn.addEventListener("click", () => {
-  const char = characters[Math.floor(Math.random()*characters.length)];
-  const loc = locations[Math.floor(Math.random()*locations.length)];
-  const vil = villains[Math.floor(Math.random()*villains.length)];
-  adventureText.textContent = `Ваш персонаж — ${char}, находится в ${loc} и сражается с ${vil}.`;
+  const char = characters[Math.floor(Math.random() * characters.length)];
+  const loc = locations[Math.floor(Math.random() * locations.length)];
+  const vill = villains[Math.floor(Math.random() * villains.length)];
+  const text = `Ваш персонаж — ${char} находится в ${loc} и сражается с ${vill}.`;
+  adventureText.textContent = text;
+  localStorage.setItem("lastAdventure", text);
 });
 
 // ===== GUESS NUMBER GAME =====
-let target = Math.floor(Math.random()*100)+1;
-let tries = 10;
-
 const guessInput = document.getElementById("guess-input");
 const guessBtn = document.getElementById("guess-btn");
 const guessResult = document.getElementById("guess-result");
-const guessTries = document.getElementById("guess-tries");
-const guessReset = document.getElementById("guess-reset");
+const guessAttempts = document.getElementById("guess-attempts");
+
+let secretNumber = Math.floor(Math.random() * 100) + 1;
+let attemptsLeft = 10;
 
 guessBtn.addEventListener("click", () => {
-  const val = parseInt(guessInput.value);
-  if(!val || val < 1 || val > 100) return;
-  tries--;
-  guessTries.textContent = tries;
-  if(val === target){
-    guessResult.textContent = `Поздравляем! Вы угадали число ${target}`;
-  } else if(val < target){
-    guessResult.textContent = "Загаданное число больше";
-  } else {
-    guessResult.textContent = "Загаданное число меньше";
+  const guess = parseInt(guessInput.value);
+  if(!guess || guess < 1 || guess > 100){
+    guessResult.textContent = "Введите число от 1 до 100!";
+    return;
   }
-  if(tries <= 0 && val !== target){
-    guessResult.textContent = `Игра окончена! Число было ${target}`;
-  }
-});
 
-guessReset.addEventListener("click", () => {
-  target = Math.floor(Math.random()*100)+1;
-  tries = 10;
-  guessTries.textContent = tries;
-  guessResult.textContent = "";
-  guessInput.value = "";
+  attemptsLeft--;
+  if(guess === secretNumber){
+    guessResult.textContent = `Верно! Это число ${secretNumber}`;
+    attemptsLeft = 0;
+  } else if(guess > secretNumber){
+    guessResult.textContent = "Меньше!";
+  } else {
+    guessResult.textContent = "Больше!";
+  }
+
+  guessAttempts.textContent = `Осталось попыток: ${attemptsLeft}`;
+
+  if(attemptsLeft <= 0 && guess !== secretNumber){
+    guessResult.textContent = `Игра окончена! Число было ${secretNumber}`;
+    secretNumber = Math.floor(Math.random() * 100) + 1;
+    attemptsLeft = 10;
+  }
 });

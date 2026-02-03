@@ -160,7 +160,7 @@ h2 {
 .contacts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 100px;
 }
 
 .contact-box {

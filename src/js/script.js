@@ -1,59 +1,45 @@
-// ===== КЛИКЕР =====
-let score=0, time=30, timer=null;
-const record = localStorage.getItem("record") || 0;
-document.getElementById("record").textContent = record;
+// typing
+const text="Frontend разработчик | Студент | UI дизайнер";
+let i=0;const t=document.querySelector(".typing");
+(function type(){if(i<text.length){t.textContent+=text[i++];setTimeout(type,60)}})();
 
-document.getElementById("clickBtn").onclick = () => {
-  if (!timer) {
-    timer = setInterval(() => {
-      time--;
-      document.getElementById("time").textContent = time;
-      if (time === 0) {
-        clearInterval(timer);
-        document.getElementById("clickerMsg").textContent =
-          "Игра окончена! Очки: " + score;
-        if (score > record) localStorage.setItem("record", score);
-      }
-    },1000);
-  }
-  score++;
-  document.getElementById("score").textContent = score;
+// CLICKER
+let cs=0,ct=30,tm=null;
+const r=localStorage.getItem("rec")||0;
+cRecord.textContent=r;
+
+cBtn.onclick=()=>{
+ if(!tm)tm=setInterval(()=>{
+  ct--;cTime.textContent=ct;
+  if(ct===0){clearInterval(tm);cMsg.textContent="Игра окончена: "+cs;
+   if(cs>r)localStorage.setItem("rec",cs)}
+ },1000);
+ cs++;cScore.textContent=cs;
 };
+cReset.onclick=()=>location.reload();
 
-document.getElementById("resetClicker").onclick = () => location.reload();
-
-// ===== ПРИКЛЮЧЕНИЕ =====
-const heroes=["рыцарь","маг","вор"];
-const places=["тёмном лесу","замке","подводном царстве"];
-const villains=["драконом","колдуном","гоблином"];
-
-document.getElementById("genStory").onclick = () => {
-  const story = `Ваш персонаж — ${heroes[Math.random()*3|0]}
-  находится в ${places[Math.random()*3|0]} и сражается с
-  ${villains[Math.random()*3|0]}.`;
-  document.getElementById("story").textContent = story;
-  localStorage.setItem("story", story);
+// ADVENTURE
+const h=["рыцарь","маг","вор"],p=["лесу","замке","царстве"],v=["драконом","гоблином","колдуном"];
+storyBtn.onclick=()=>{
+ const s=`Ваш персонаж — ${h[Math.random()*3|0]} находится в ${p[Math.random()*3|0]} и сражается с ${v[Math.random()*3|0]}.`;
+ story.textContent=s;localStorage.setItem("story",s);
 };
+story.textContent=localStorage.getItem("story")||"";
 
-// ===== УГАДАЙ ЧИСЛО =====
-let number = Math.floor(Math.random()*100)+1;
-let tries = 10;
-
-document.getElementById("guessBtn").onclick = () => {
-  const val = parseInt(document.getElementById("guessInput").value);
-  if (!val) return;
-  tries--;
-  document.getElementById("tries").textContent = tries;
-
-  if (val === number)
-    document.getElementById("guessMsg").textContent = "Угадал!";
-  else
-    document.getElementById("guessMsg").textContent =
-      val > number ? "Меньше" : "Больше";
-
-  if (tries === 0)
-    document.getElementById("guessMsg").textContent =
-      "Проиграл! Было: " + number;
+// GUESS
+let num=Math.floor(Math.random()*100)+1,tr=10;
+guessBtn.onclick=()=>{
+ const val=parseInt(guessInput.value);if(!val)return;
+ tr--;tries.textContent=tr;
+ if(val===num)guessMsg.textContent="Угадал!";
+ else guessMsg.textContent=val>num?"Меньше":"Больше";
+ if(tr===0)guessMsg.textContent="Проиграл. Было: "+num;
 };
+guessReset.onclick=()=>location.reload();
 
-document.getElementById("restartGuess").onclick = () => location.reload();
+// FORM
+contactForm.onsubmit=e=>{
+ e.preventDefault();
+ formStatus.textContent="Отправлено ✔";
+ contactForm.reset();
+};

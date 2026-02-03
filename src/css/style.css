@@ -1,290 +1,232 @@
-/* === Общие настройки === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --primary1: #7f5cff;
+  --primary2: #22d3ee;
+  --bg-dark: #0b0f2a;
+  --glass: rgba(255,255,255,0.07);
+  --text: #e5e7eb;
+}
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
+  background: linear-gradient(135deg, #0b0f2a, #1b1f3b);
+  color: var(--text);
   scroll-behavior: smooth;
-  background: linear-gradient(135deg, #ece9e6, #ffffff); /* мягкий градиент */
-  color: #333;
 }
 
-/* === Навигация === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 100px 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 36px;
+  color: var(--primary2);
+}
+
+/* Navbar */
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  background: rgba(30, 30, 50, 0.95);
+  top: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
+  padding: 15px 50px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  border-bottom: 2px solid #4caf50;
 }
 
-.navbar a, .dropbtn {
-  color: #fff;
+.navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navbar a {
+  color: var(--text);
   text-decoration: none;
-  padding: 8px 15px;
-  border-radius: 8px;
-  transition: background 0.3s;
+  font-weight: 500;
 }
 
-.navbar a:hover, .dropbtn:hover {
-  background-color: #4caf50;
+.logo {
+  font-weight: 800;
+  font-size: 24px;
+  background: linear-gradient(90deg, var(--primary1), var(--primary2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  background-color: #2c2c3e;
-  min-width: 180px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 10px 15px;
-  color: #fff;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* === Секции === */
-section {
-  padding: 100px 40px;
+/* Hero */
+.hero {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
-/* Градиенты для секций */
-#home {
-  background: linear-gradient(135deg, #4caf50, #81c784);
-  color: #fff;
-}
-#skills {
-  background: linear-gradient(135deg, #42a5f5, #478ed1);
-  color: #fff;
-}
-#education {
-  background: linear-gradient(135deg, #ab47bc, #8e24aa);
-  color: #fff;
-}
-#achievements {
-  background: linear-gradient(135deg, #ff7043, #f4511e);
-  color: #fff;
-}
-#projects {
-  background: linear-gradient(135deg, #26c6da, #00acc1);
-  color: #fff;
-}
-#contacts {
-  background: linear-gradient(135deg, #ffca28, #f9a825);
-  color: #333;
-}
-#minigames {
-  background: linear-gradient(135deg, #7e57c2, #5e35b1);
-  color: #fff;
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
-/* === HOME === */
-#home h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
+.hero h1 {
+  font-size: 60px;
 }
 
-#home p {
-  max-width: 600px;
-  margin-bottom: 20px;
-  font-size: 18px;
+.typing {
+  color: var(--primary2);
+  margin: 15px 0;
 }
 
-#home img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  border: 4px solid #fff;
-}
-
-#home button {
-  padding: 12px 25px;
-  font-size: 16px;
-  background: #fff;
-  color: #4caf50;
+/* Buttons */
+.btn {
+  padding: 12px 28px;
+  border-radius: 40px;
   border: none;
-  border-radius: 30px;
   cursor: pointer;
-  transition: 0.3s;
+  background: linear-gradient(90deg, var(--primary1), var(--primary2));
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.2s, filter 0.2s;
 }
 
-#home button:hover {
-  background: #e0f2f1;
+.btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
-/* === SKILLS === */
-#skills h2 {
-  margin-bottom: 30px;
-}
-
-.progress-container {
-  width: 80%;
-  max-width: 600px;
-}
-
-.progress-bar {
-  background: rgba(255,255,255,0.2);
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-.progress-bar div {
-  height: 25px;
-  background: #fff;
-  width: 0;
-  line-height: 25px;
-  color: #333;
-  text-align: right;
-  padding-right: 10px;
-  border-radius: 20px;
-  font-weight: bold;
-  transition: width 1s ease-in-out;
-}
-
-/* === EDUCATION Timeline === */
-.timeline {
-  display: flex;
-  flex-direction: column;
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  width: 80%;
-  max-width: 800px;
 }
 
-.timeline-item {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  border-left: 5px solid #fff;
+.card {
+  background: var(--glass);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Skills */
+.skill {
+  margin-bottom: 20px;
+}
+
+.bar {
+  height: 12px;
+  background: rgba(255,255,255,0.15);
   border-radius: 10px;
+  overflow: hidden;
 }
 
-/* === ACHIEVEMENTS === */
-#achievements ul {
+.bar div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary1), var(--primary2));
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.tags li {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 80%;
-  max-width: 700px;
+  padding: 8px 14px;
+  background: var(--glass);
+  border-radius: 20px;
 }
 
-#achievements li {
-  background: rgba(255,255,255,0.2);
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+/* Contacts */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
-/* === PROJECTS === */
-.project-card {
-  background: rgba(255,255,255,0.15);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  margin-bottom: 25px;
-  width: 300px;
-  transition: transform 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-}
-
-.project-card img {
-  width: 100%;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-
-.project-card a {
-  color: #fff;
-  text-decoration: underline;
-}
-
-/* === CONTACT FORM === */
-#contacts form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  max-width: 400px;
-}
-
-#contacts input, #contacts textarea {
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-}
-
-#contacts button {
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: none;
-  background-color: #fff;
-  color: #4caf50;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-#contacts button:hover {
-  background-color: #e0f2f1;
-}
-
-/* === MINIGAMES === */
-.minigame {
-  background: rgba(255,255,255,0.15);
+.contact-box {
+  background: var(--glass);
   padding: 30px;
-  border-radius: 15px;
-  margin-bottom: 30px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  width: 90%;
-  max-width: 500px;
+  border-radius: 20px;
 }
 
-.minigame button {
-  padding: 12px 25px;
+#contactForm input, #contactForm textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.socials a {
+  margin-right: 15px;
+  color: var(--primary2);
+  font-weight: 600;
+}
+
+/* Mini-games */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
   border-radius: 30px;
   border: none;
-  background-color: #fff;
-  color: #4caf50;
+  background: var(--glass);
+  color: var(--text);
   cursor: pointer;
-  font-weight: bold;
-  margin: 10px 0;
   transition: 0.3s;
 }
 
-.minigame button:hover {
-  background-color: #e0f2f1;
+.tab-btn.active {
+  background: linear-gradient(90deg, var(--primary1), var(--primary2));
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#guess-input {
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.7;
 }

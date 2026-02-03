@@ -1,27 +1,67 @@
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#050816;color:#e5e7eb}
-section{padding:120px 20px}
-.container{max-width:1100px;margin:auto}
-.navbar{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;padding:15px 50px;background:#0008}
-.navbar ul{display:flex;gap:20px;list-style:none}
-a{color:white;text-decoration:none}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 
-.dropdown{position:relative}
-.dropdown-content{display:none;position:absolute;background:#111;padding:10px;border-radius:10px}
-.dropdown:hover .dropdown-content{display:block}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  padding: 10px 20px;
+  z-index: 1000;
+  gap: 10px;
+}
 
-.hero{min-height:100vh;display:flex;align-items:center}
-.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px}
-.hero img{width:260px;border-radius:50%}
+.navbar a, .dropbtn {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
 
-.skill{margin-bottom:15px}
-.bar{height:10px;background:#333;border-radius:10px}
-.bar div{height:100%;background:linear-gradient(90deg,#7f5cff,#22d3ee)}
+section {
+  padding: 100px 20px 50px;
+  min-height: 100vh;
+}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.card{background:#111;padding:25px;border-radius:20px}
+.progress {
+  background: #ccc;
+  height: 20px;
+  margin-bottom: 10px;
+}
 
-.btn,button{margin-top:10px;padding:10px 25px;border:none;border-radius:30px;cursor:pointer}
-button:active{transform:scale(0.95)}
+.progress div {
+  background: #4caf50;
+  height: 100%;
+}
 
-.game{text-align:center}
+.project-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #333;
+  min-width: 160px;
+  z-index: 1001;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 5px 10px;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

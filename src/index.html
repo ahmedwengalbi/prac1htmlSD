@@ -1,10 +1,120 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Самусев Даниил | Портфолио</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Минимальные стили для кнопок, табов и прогресс баров */
+    .btn {
+      background: linear-gradient(90deg, #7f5af0, #0bc5ea);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px 0;
+      cursor: pointer;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #0bc5ea, #7f5af0);
+    }
+    .tabs {
+      margin-bottom: 15px;
+    }
+    .tab-btn {
+      background: #222;
+      color: #eee;
+      border-radius: 20px;
+      padding: 8px 15px;
+      margin-right: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .tab-btn.active {
+      background: linear-gradient(90deg, #7f5af0, #0bc5ea);
+      color: white;
+    }
+    .tab-content {
+      display: none;
+      padding: 15px 10px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: #111;
+      color: #eee;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .skill {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .bar {
+      background: #333;
+      border-radius: 12px;
+      height: 16px;
+      margin-top: 4px;
+      overflow: hidden;
+    }
+    .bar > div {
+      background: linear-gradient(90deg, #7f5af0, #0bc5ea);
+      height: 100%;
+      width: 0;
+      transition: width 0.5s ease;
+    }
+    .tags {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .tags li {
+      background: #0bc5ea;
+      padding: 5px 12px;
+      border-radius: 20px;
+      color: #111;
+      font-weight: 600;
+      user-select: none;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #555;
+      background: #222;
+      color: #eee;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #999;
+    }
+    #formStatus {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    /* Анимация печати для Hero */
+    .typing {
+      font-weight: 600;
+      color: #0bc5ea;
+      min-height: 24px;
+      font-size: 1.1rem;
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #0bc5ea;
+      width: fit-content;
+    }
+  </style>
 </head>
 <body>
 
@@ -36,7 +146,7 @@
       <a href="#contacts" class="btn">Связаться со мной</a>
     </div>
     <div class="hero-image">
-      <img src="images/avatar.png" alt="Аватар">
+      <img src="images/avatar.png" alt="Аватар" />
     </div>
   </div>
 </section>
@@ -163,7 +273,7 @@
     <div class="tab-content" id="guess">
       <h3>Угадай число</h3>
       <p>Попыток осталось: <span id="guess-tries">10</span></p>
-      <input type="number" id="guess-input" placeholder="Введите число от 1 до 100">
+      <input type="number" id="guess-input" placeholder="Введите число от 1 до 100" min="1" max="100" />
       <button id="guess-btn" class="btn">Угадать</button>
       <p id="guess-result"></p>
       <button id="guess-reset" class="btn">Начать заново</button>
@@ -179,8 +289,8 @@
       <div class="contact-box">
         <h3>Связаться со мной</h3>
         <form id="contactForm">
-          <input type="text" placeholder="Ваше имя" required>
-          <input type="email" placeholder="Email" required>
+          <input type="text" placeholder="Ваше имя" required />
+          <input type="email" placeholder="Email" required />
           <textarea rows="5" placeholder="Сообщение" required></textarea>
           <button type="submit" class="btn">Отправить</button>
           <span id="formStatus"></span>
@@ -202,10 +312,197 @@
 
 </main>
 
-<footer>
-  © 2026 Самусев Даниил
-</footer>
+<footer>© 2026 Самусев Даниил</footer>
 
-<script src="js/script.js"></script>
+<script>
+  // --- Табы мини-игр ---
+  const tabs = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // --- Кликер ---
+  const clickBtn = document.getElementById('click-btn');
+  const resetBtn = document.getElementById('reset-btn');
+  const scoreDisplay = document.getElementById('clicker-score');
+  const timerDisplay = document.getElementById('clicker-timer');
+
+  let score = 0;
+  let timeLeft = 30;
+  let clickerInterval = null;
+  let gameActive = false;
+
+  function startClicker() {
+    if (gameActive) return;
+    gameActive = true;
+    score = 0;
+    timeLeft = 30;
+    scoreDisplay.textContent = score;
+    timerDisplay.textContent = `Время: ${timeLeft}`;
+    clickerInterval = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = `Время: ${timeLeft}`;
+      if (timeLeft <= 0) {
+        clearInterval(clickerInterval);
+        alert(`Время вышло! Ваш счёт: ${score}`);
+        gameActive = false;
+      }
+    }, 1000);
+  }
+
+  clickBtn.addEventListener('click', () => {
+    if (!gameActive) startClicker();
+    if (gameActive && timeLeft > 0) {
+      score++;
+      scoreDisplay.textContent = score;
+      clickBtn.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+    }
+  });
+
+  resetBtn.addEventListener('click', () => {
+    clearInterval(clickerInterval);
+    score = 0;
+    timeLeft = 30;
+    scoreDisplay.textContent = score;
+    timerDisplay.textContent = `Время: ${timeLeft}`;
+    gameActive = false;
+    clickBtn.style.backgroundColor = '';
+  });
+
+  // --- Генератор приключений ---
+  const characters = ['рыцарь', 'маг', 'вор'];
+  const locations = ['тёмный лес', 'заброшенный замок', 'подводное царство'];
+  const villains = ['дракон', 'колдун', 'гоблин'];
+
+  const adventureText = document.getElementById('adventure-text');
+  const adventureBtn = document.getElementById('adventure-btn');
+
+  function generateAdventure() {
+    const character = characters[Math.floor(Math.random() * characters.length)];
+    const location = locations[Math.floor(Math.random() * locations.length)];
+    const villain = villains[Math.floor(Math.random() * villains.length)];
+    const text = `Ваш персонаж — ${character} находится в ${location} и сражается с ${villain}.`;
+    adventureText.textContent = text;
+
+    // Сохраняем в localStorage
+    localStorage.setItem('lastAdventure', text);
+  }
+
+  adventureBtn.addEventListener('click', generateAdventure);
+
+  // При загрузке страницы показываем последнее приключение из localStorage
+  document.addEventListener('DOMContentLoaded', () => {
+    const last = localStorage.getItem('lastAdventure');
+    if (last) adventureText.textContent = last;
+  });
+
+  // --- Игра "Угадай число" ---
+  const guessInput = document.getElementById('guess-input');
+  const guessBtn = document.getElementById('guess-btn');
+  const guessResult = document.getElementById('guess-result');
+  const guessTriesDisplay = document.getElementById('guess-tries');
+  const guessReset = document.getElementById('guess-reset');
+
+  let randomNumber;
+  let triesLeft;
+
+  function initGuessGame() {
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+    triesLeft = 10;
+    guessTriesDisplay.textContent = triesLeft;
+    guessResult.textContent = '';
+    guessInput.value = '';
+    guessInput.disabled = false;
+    guessBtn.disabled = false;
+  }
+
+  guessBtn.addEventListener('click', () => {
+    const guess = parseInt(guessInput.value);
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+      guessResult.textContent = 'Введите число от 1 до 100!';
+      return;
+    }
+    if (triesLeft <= 0) return;
+
+    triesLeft--;
+    guessTriesDisplay.textContent = triesLeft;
+
+    if (guess === randomNumber) {
+      guessResult.textContent = `Поздравляем! Вы угадали число ${randomNumber}! 🎉`;
+      guessInput.disabled = true;
+      guessBtn.disabled = true;
+    } else if (guess < randomNumber) {
+      guessResult.textContent = 'Загаданное число больше.';
+    } else {
+      guessResult.textContent = 'Загаданное число меньше.';
+    }
+
+    if (triesLeft === 0 && guess !== randomNumber) {
+      guessResult.textContent = `Игра окончена. Вы не угадали. Загаданное число было ${randomNumber}.`;
+      guessInput.disabled = true;
+      guessBtn.disabled = true;
+    }
+  });
+
+  guessReset.addEventListener('click', initGuessGame);
+
+  initGuessGame();
+
+  // --- Анимация "печати" для Hero ---
+  const typingP = document.querySelector('.typing');
+  const roles = ['Frontend разработчик', 'UI дизайнер', 'Студент'];
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const current = roles[roleIndex];
+    if (!isDeleting) {
+      typingP.textContent = current.slice(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === current.length) {
+        isDeleting = true;
+        setTimeout(type, 1500);
+        return;
+      }
+    } else {
+      typingP.textContent = current.slice(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+      }
+    }
+    setTimeout(type, isDeleting ? 80 : 120);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    type();
+  });
+
+  // --- Отправка формы контактов ---
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formStatus.textContent = 'Отправка...';
+
+    // Здесь можно добавить реальную отправку данных на сервер
+    setTimeout(() => {
+      formStatus.textContent = 'Спасибо! Сообщение отправлено.';
+      contactForm.reset();
+    }, 1500);
+  });
+</script>
+
 </body>
 </html>

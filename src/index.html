@@ -11,194 +11,91 @@
 <header>
   <nav class="navbar">
     <div class="logo">SD</div>
-<ul>
-  <li><a href="#home">Главная</a></li>
-  <li><a href="#skills">Навыки</a></li>
-  <li><a href="#education">Образование</a></li>
-  <li><a href="#achievements">Достижения</a></li>
-  <li><a href="#projects">Проекты</a></li>
+    <ul>
+      <li><a href="#home">Главная</a></li>
+      <li><a href="#skills">Навыки</a></li>
+      <li><a href="#education">Образование</a></li>
+      <li><a href="#achievements">Достижения</a></li>
+      <li><a href="#projects">Проекты</a></li>
 
-  <li class="dropdown">
-    <span class="dropbtn">Мини-игры ▾</span>
-    <div class="dropdown-content">
-      <a href="#clicker">🎯 Кликер</a>
-      <a href="#adventure">🗺️ Приключение</a>
-      <a href="#guess">🔢 Угадай число</a>
-    </div>
-  </li>
+      <li class="dropdown">
+        <span class="dropbtn">Мини-игры ▾</span>
+        <div class="dropdown-content">
+          <a href="#clicker">🎯 Кликер</a>
+        </div>
+      </li>
 
-  <li><a href="#contacts">Контакты</a></li>
-</ul>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
   </nav>
 </header>
 
 <main>
 
-<!-- HERO -->
 <section id="home" class="hero">
   <div class="container">
     <div class="hero-text">
       <h1>Самусев Даниил</h1>
       <p class="typing"></p>
-
-      <p>
-        Я студент и начинающий разработчик, интересующийся веб-технологиями,
-        desktop-разработкой и алгоритмами.
-      </p>
-
-      <p>
-        Люблю создавать современные интерфейсы и постоянно развиваюсь в IT.
-      </p>
-
+      <p>Я студент и начинающий разработчик, интересующийся веб-технологиями.</p>
       <a href="#contacts" class="btn">Связаться со мной</a>
     </div>
-
     <div class="hero-image">
       <img src="images/avatar.png" alt="Аватар">
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <h2>Навыки</h2>
 
-    <div class="skill">
-      <span>Python — 70%</span>
-      <div class="bar"><div style="width:70%"></div></div>
-    </div>
-
-    <div class="skill">
-      <span>Java — 60%</span>
-      <div class="bar"><div style="width:60%"></div></div>
-    </div>
-
-    <div class="skill">
-      <span>C — 50%</span>
-      <div class="bar"><div style="width:50%"></div></div>
-    </div>
-
-    <div class="skill">
-      <span>C++ — 40%</span>
-      <div class="bar"><div style="width:40%"></div></div>
-    </div>
-
-    <div class="skill">
-      <span>JavaScript — 10%</span>
-      <div class="bar"><div style="width:10%"></div></div>
-    </div>
-
-    <ul class="tags">
-      <li>Git</li>
-      <li>Linux</li>
-      <li>Qt</li>
-      <li>MySQL</li>
-      <li>ООП</li>
-      <li>HTTP</li>
-    </ul>
+    <div class="skill"><span>Python — 70%</span><div class="bar"><div style="width:70%"></div></div></div>
+    <div class="skill"><span>Java — 60%</span><div class="bar"><div style="width:60%"></div></div></div>
+    <div class="skill"><span>C — 50%</span><div class="bar"><div style="width:50%"></div></div></div>
+    <div class="skill"><span>JavaScript — 10%</span><div class="bar"><div style="width:10%"></div></div></div>
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <h2>Образование</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Университет</h3>
-        <p>Бакалавр, Computer Science</p>
-        <p>2023 — настоящее время</p>
-      </div>
-
-      <div class="card">
-        <h3>Школа</h3>
-        <p>Информатика и компьютерные технологии</p>
-        <p>2018 — 2022</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="container">
-    <h2>Достижения</h2>
-
-    <div class="cards">
-      <div class="card">🏆 Участие в хакатоне</div>
-      <div class="card">📜 Сертификат Coursera</div>
-      <div class="card">🥇 Олимпиада по программированию</div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
 <section id="projects">
   <div class="container">
     <h2>Проекты</h2>
-
     <div class="cards">
-      <div class="card">
-        <h3>Сайт-портфолио</h3>
-        <p>Персональный сайт-портфолио.</p>
-        <p><strong>HTML / CSS / JS</strong></p>
-      </div>
-
-      <div class="card">
-        <h3>Todo App</h3>
-        <p>Приложение для управления задачами.</p>
-        <p><strong>JavaScript</strong></p>
-      </div>
-
-      <div class="card">
-        <h3>Desktop App</h3>
-        <p>Приложение на Qt.</p>
-        <p><strong>C++ / Qt</strong></p>
-      </div>
+      <div class="card">Сайт-портфолио</div>
+      <div class="card">Todo App</div>
+      <div class="card">Desktop App</div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTS -->
+<!-- 🎯 CLICKER -->
+<section id="clicker">
+  <div class="container">
+    <h2>🎯 Мини-игра «Кликер»</h2>
+
+    <div class="card clicker-card">
+      <p>Очки: <span id="score">0</span></p>
+      <p>Время: <span id="time">30</span> сек</p>
+      <p>Рекорд: <span id="record">0</span></p>
+
+      <button id="clickBtn" class="btn">Клик!</button>
+      <button id="resetBtn">Сбросить</button>
+
+      <p id="clickerMessage"></p>
+    </div>
+  </div>
+</section>
+
 <section id="contacts">
   <div class="container">
     <h2>Контакты</h2>
-
-    <div class="contacts-grid">
-      <div class="contact-box">
-        <h3>Связаться со мной</h3>
-
-        <form id="contactForm">
-          <input type="text" placeholder="Ваше имя" required>
-          <input type="email" placeholder="Email" required>
-          <textarea rows="5" placeholder="Сообщение" required></textarea>
-          <button type="submit">Отправить</button>
-          <span id="formStatus"></span>
-        </form>
-      </div>
-
-      <div class="contact-box">
-        <h3>Контактная информация</h3>
-        <p>📧 student@example.com</p>
-        <p>📍 Павлодар, Казахстан</p>
-
-        <div class="socials">
-          <a href="#">GitHub</a>
-          <a href="#">Telegram</a>
-          <a href="#">HackerRank</a>
-        </div>
-      </div>
-    </div>
+    <p>📧 student@example.com</p>
   </div>
 </section>
 
 </main>
 
-<footer>
-  © 2026 Самусев Даниил
-</footer>
+<footer>© 2026 Самусев Даниил</footer>
 
 <script src="js/script.js"></script>
 </body>

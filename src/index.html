@@ -14,14 +14,14 @@
     <ul>
       <li><a href="#home">Главная</a></li>
       <li><a href="#skills">Навыки</a></li>
-      <li><a href="#education">Образование</a></li>
-      <li><a href="#achievements">Достижения</a></li>
       <li><a href="#projects">Проекты</a></li>
 
       <li class="dropdown">
         <span class="dropbtn">Мини-игры ▾</span>
         <div class="dropdown-content">
           <a href="#clicker">🎯 Кликер</a>
+          <a href="#adventure">🗺️ Приключение</a>
+          <a href="#guess">🔢 Угадай число</a>
         </div>
       </li>
 
@@ -34,54 +34,45 @@
 
 <section id="home" class="hero">
   <div class="container">
-    <div class="hero-text">
-      <h1>Самусев Даниил</h1>
-      <p class="typing"></p>
-      <p>Я студент и начинающий разработчик, интересующийся веб-технологиями.</p>
-      <a href="#contacts" class="btn">Связаться со мной</a>
-    </div>
-    <div class="hero-image">
-      <img src="images/avatar.png" alt="Аватар">
-    </div>
+    <h1>Самусев Даниил</h1>
+    <p class="typing"></p>
   </div>
 </section>
 
-<section id="skills">
-  <div class="container">
-    <h2>Навыки</h2>
-
-    <div class="skill"><span>Python — 70%</span><div class="bar"><div style="width:70%"></div></div></div>
-    <div class="skill"><span>Java — 60%</span><div class="bar"><div style="width:60%"></div></div></div>
-    <div class="skill"><span>C — 50%</span><div class="bar"><div style="width:50%"></div></div></div>
-    <div class="skill"><span>JavaScript — 10%</span><div class="bar"><div style="width:10%"></div></div></div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="container">
-    <h2>Проекты</h2>
-    <div class="cards">
-      <div class="card">Сайт-портфолио</div>
-      <div class="card">Todo App</div>
-      <div class="card">Desktop App</div>
-    </div>
-  </div>
-</section>
-
-<!-- 🎯 CLICKER -->
 <section id="clicker">
   <div class="container">
-    <h2>🎯 Мини-игра «Кликер»</h2>
-
-    <div class="card clicker-card">
+    <h2>🎯 Кликер</h2>
+    <div class="card game">
       <p>Очки: <span id="score">0</span></p>
       <p>Время: <span id="time">30</span> сек</p>
       <p>Рекорд: <span id="record">0</span></p>
+      <button id="clickBtn">Клик!</button>
+      <button id="resetClicker">Сбросить</button>
+      <p id="clickerMsg"></p>
+    </div>
+  </div>
+</section>
 
-      <button id="clickBtn" class="btn">Клик!</button>
-      <button id="resetBtn">Сбросить</button>
+<section id="adventure">
+  <div class="container">
+    <h2>🗺️ Генератор приключений</h2>
+    <div class="card game">
+      <p id="story"></p>
+      <button id="genStory">Сгенерировать</button>
+    </div>
+  </div>
+</section>
 
-      <p id="clickerMessage"></p>
+<section id="guess">
+  <div class="container">
+    <h2>🔢 Угадай число</h2>
+    <div class="card game">
+      <p>Число от 1 до 100</p>
+      <input type="number" id="guessInput" min="1" max="100">
+      <button id="guessBtn">Проверить</button>
+      <p id="guessMsg"></p>
+      <p>Осталось попыток: <span id="tries">10</span></p>
+      <button id="restartGuess">Перезапуск</button>
     </div>
   </div>
 </section>
@@ -90,12 +81,11 @@
   <div class="container">
     <h2>Контакты</h2>
     <p>📧 student@example.com</p>
+    <p>📍 Павлодар, Казахстан</p>
   </div>
 </section>
 
 </main>
-
-<footer>© 2026 Самусев Даниил</footer>
 
 <script src="js/script.js"></script>
 </body>

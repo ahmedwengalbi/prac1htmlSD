@@ -3,138 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моё портфолио</title>
+  <title>Самусев Даниил | Портфолио</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <a href="#home">Главная</a>
-      <a href="#skills">Навыки</a>
-      <a href="#education">Образование</a>
-      <a href="#achievements">Достижения</a>
-      <a href="#projects">Проекты</a>
-      <a href="#contacts">Контакты</a>
-      <div class="dropdown">
-        <button class="dropbtn">Мини-игры</button>
-        <div class="dropdown-content">
-          <a href="#clicker">Кликер</a>
-          <a href="#adventure">Генератор приключений</a>
-          <a href="#guess-number">Угадай число</a>
-        </div>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-    <!-- HOME -->
-    <section id="home">
-      <h1>Привет, я Самусев Даниил</h1>
-      <p>Frontend разработчик | UI дизайнер | Студент</p>
+<header>
+  <nav class="navbar">
+    <div class="logo">SD</div>
+    <ul>
+      <li><a href="#home">Главная</a></li>
+      <li><a href="#skills">Навыки</a></li>
+      <li><a href="#education">Образование</a></li>
+      <li><a href="#achievements">Достижения</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#games">Мини-игры</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-container">
+    <div class="hero-text">
+      <h1>Самусев Даниил</h1>
+      <p class="typing"></p>
+      <p>Я студент и начинающий разработчик, интересующийся веб-технологиями, desktop-разработкой и алгоритмами.</p>
+      <p>Люблю создавать современные интерфейсы и постоянно развиваюсь в IT.</p>
+      <a href="#contacts" class="btn">Связаться со мной</a>
+    </div>
+    <div class="hero-image">
       <img src="images/avatar.png" alt="Аватар">
-      <button onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">
-        Связаться со мной
-      </button>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <h2>Навыки</h2>
-      <h3>Hard Skills</h3>
-      <p>Python: 70%</p>
-      <div class="progress"><div style="width:70%"></div></div>
-      <p>JavaScript: 10%</p>
-      <div class="progress"><div style="width:10%"></div></div>
-      <p>Java: 60%</p>
-      <div class="progress"><div style="width:60%"></div></div>
-      <p>C++: 40%</p>
-      <div class="progress"><div style="width:40%"></div></div>
-      <p>C: 50%</p>
-      <div class="progress"><div style="width:50%"></div></div>
-    </section>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2>Навыки</h2>
+    <div class="skill">
+      <span>Python — 70%</span>
+      <div class="bar"><div style="width:70%"></div></div>
+    </div>
+    <div class="skill">
+      <span>Java — 60%</span>
+      <div class="bar"><div style="width:60%"></div></div>
+    </div>
+    <div class="skill">
+      <span>C — 50%</span>
+      <div class="bar"><div style="width:50%"></div></div>
+    </div>
+    <div class="skill">
+      <span>C++ — 40%</span>
+      <div class="bar"><div style="width:40%"></div></div>
+    </div>
+    <div class="skill">
+      <span>JavaScript — 10%</span>
+      <div class="bar"><div style="width:10%"></div></div>
+    </div>
+    <ul class="tags">
+      <li>Git</li>
+      <li>Linux</li>
+      <li>Qt</li>
+      <li>MySQL</li>
+      <li>ООП</li>
+      <li>HTTP</li>
+    </ul>
+  </div>
+</section>
 
-    <!-- EDUCATION -->
-    <section id="education">
-      <h2>Образование</h2>
-      <div class="timeline">
-        <div>
-          <h3>Университет</h3>
-          <span>2023 - 2027</span>
-          <p>Computer Science</p>
-        </div>
-        <div>
-          <h3>Школа</h3>
-          <span>2012 - 2023</span>
-          <p>Общее образование</p>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <h2>Образование</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Университет</h3>
+        <p>Бакалавр, Computer Science</p>
+        <p>2023 — настоящее время</p>
+      </div>
+      <div class="card">
+        <h3>Школа</h3>
+        <p>Информатика и компьютерные технологии</p>
+        <p>2018 — 2022</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <h2>Достижения</h2>
+    <div class="cards">
+      <div class="card">🏆 Участие в хакатоне</div>
+      <div class="card">📜 Сертификат Coursera</div>
+      <div class="card">🥇 Олимпиада по программированию</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2>Проекты</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Сайт-портфолио</h3>
+        <p>Персональный сайт-портфолио.</p>
+        <p><strong>HTML / CSS / JS</strong></p>
+      </div>
+      <div class="card">
+        <h3>Todo App</h3>
+        <p>Приложение для управления задачами.</p>
+        <p><strong>JavaScript</strong></p>
+      </div>
+      <div class="card">
+        <h3>Desktop App</h3>
+        <p>Приложение на Qt.</p>
+        <p><strong>C++ / Qt</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI GAMES -->
+<section id="games">
+  <div class="container">
+    <h2>Мини-игры</h2>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="clicker">Кликер</button>
+      <button class="tab-btn" data-tab="adventure">Генератор приключений</button>
+      <button class="tab-btn" data-tab="guess">Угадай число</button>
+    </div>
+
+    <!-- Clicker -->
+    <div class="tab-content active" id="clicker">
+      <h3>Кликер</h3>
+      <p>Очки: <span id="clicker-score">0</span></p>
+      <button id="click-btn" class="btn">Клик!</button>
+      <button id="reset-btn" class="btn">Сбросить</button>
+      <p id="clicker-timer">Время: 30</p>
+    </div>
+
+    <!-- Adventure Generator -->
+    <div class="tab-content" id="adventure">
+      <h3>Генератор приключений</h3>
+      <p id="adventure-text">Нажмите "Сгенерировать", чтобы получить приключение</p>
+      <button id="adventure-btn" class="btn">Сгенерировать</button>
+    </div>
+
+    <!-- Guess Number -->
+    <div class="tab-content" id="guess">
+      <h3>Угадай число</h3>
+      <p>Попыток осталось: <span id="guess-tries">10</span></p>
+      <input type="number" id="guess-input" placeholder="Введите число от 1 до 100">
+      <button id="guess-btn" class="btn">Угадать</button>
+      <p id="guess-result"></p>
+      <button id="guess-reset" class="btn">Начать заново</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="container">
+    <h2>Контакты</h2>
+    <div class="contacts-grid">
+      <div class="contact-box">
+        <h3>Связаться со мной</h3>
+        <form id="contactForm">
+          <input type="text" placeholder="Ваше имя" required>
+          <input type="email" placeholder="Email" required>
+          <textarea rows="5" placeholder="Сообщение" required></textarea>
+          <button type="submit" class="btn">Отправить</button>
+          <span id="formStatus"></span>
+        </form>
+      </div>
+      <div class="contact-box">
+        <h3>Контактная информация</h3>
+        <p>📧 student@example.com</p>
+        <p>📍 Павлодар, Казахстан</p>
+        <div class="socials">
+          <a href="#">GitHub</a>
+          <a href="#">Telegram</a>
+          <a href="#">HackerRank</a>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements">
-      <h2>Достижения</h2>
-      <ul>
-        <li>Хакатон XYZ — 2021</li>
-        <li>Сертификат Coursera по JS — 2020</li>
-        <li>Олимпиада по программированию — 2019</li>
-      </ul>
-    </section>
+</main>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2>Проекты</h2>
-      <div class="project-card">
-        <img src="images/avatar.png" alt="Проект">
-        <h3>Проект 1</h3>
-        <p>Описание проекта...</p>
-        <p>Технологии: HTML, CSS, JS</p>
-        <a href="#">GitHub</a> | <a href="#">Live Demo</a>
-      </div>
-    </section>
+<footer>
+  © 2026 Самусев Даниил
+</footer>
 
-    <!-- CONTACTS -->
-    <section id="contacts">
-      <h2>Контакты</h2>
-      <form id="contactForm">
-        <input type="text" placeholder="Имя" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Сообщение" required></textarea>
-        <button type="submit">Отправить</button>
-      </form>
-      <p>Email: student@example.com</p>
-      <p>Город: Павлодар</p>
-    </section>
-
-    <!-- MINIGAMES: Clicker -->
-    <section id="clicker">
-      <h2>Кликер</h2>
-      <p>Очки: <span id="clickScore">0</span></p>
-      <button id="cBtn">Клик!</button>
-      <button id="resetBtn">Сбросить</button>
-      <p>Время: <span id="timer">30</span> сек</p>
-    </section>
-
-    <!-- MINIGAMES: Adventure -->
-    <section id="adventure">
-      <h2>Генератор приключений</h2>
-      <p id="adventureText">Нажмите кнопку для начала приключения</p>
-      <button id="advBtn">Сгенерировать</button>
-      <button id="advSaveBtn">Сохранить</button>
-      <ul id="advSaved"></ul>
-    </section>
-
-    <!-- MINIGAMES: Guess Number -->
-    <section id="guess-number">
-      <h2>Угадай число</h2>
-      <input type="number" id="guessInput" min="1" max="100">
-      <button id="guessBtn">Проверить</button>
-      <p id="guessMessage"></p>
-      <p>Попыток осталось: <span id="guessTries">5</span></p>
-      <button id="guessReset">Начать заново</button>
-    </section>
-  </main>
-
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

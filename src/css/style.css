@@ -80,7 +80,7 @@ h2 {
 .hero-container {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
+  gap: 70px;
   align-items: center;
 }
 

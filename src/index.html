@@ -5,116 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Самусев Даниил | Портфолио</title>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Минимальные стили для кнопок, табов и прогресс баров */
-    .btn {
-      background: linear-gradient(90deg, #7f5af0, #0bc5ea);
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      margin: 5px 0;
-      cursor: pointer;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: linear-gradient(90deg, #0bc5ea, #7f5af0);
-    }
-    .tabs {
-      margin-bottom: 15px;
-    }
-    .tab-btn {
-      background: #222;
-      color: #eee;
-      border-radius: 20px;
-      padding: 8px 15px;
-      margin-right: 8px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .tab-btn.active {
-      background: linear-gradient(90deg, #7f5af0, #0bc5ea);
-      color: white;
-    }
-    .tab-content {
-      display: none;
-      padding: 15px 10px;
-      border: 1px solid #444;
-      border-radius: 8px;
-      background: #111;
-      color: #eee;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .skill {
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-    .bar {
-      background: #333;
-      border-radius: 12px;
-      height: 16px;
-      margin-top: 4px;
-      overflow: hidden;
-    }
-    .bar > div {
-      background: linear-gradient(90deg, #7f5af0, #0bc5ea);
-      height: 100%;
-      width: 0;
-      transition: width 0.5s ease;
-    }
-    .tags {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .tags li {
-      background: #0bc5ea;
-      padding: 5px 12px;
-      border-radius: 20px;
-      color: #111;
-      font-weight: 600;
-      user-select: none;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: 1px solid #555;
-      background: #222;
-      color: #eee;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    input::placeholder, textarea::placeholder {
-      color: #999;
-    }
-    #formStatus {
-      display: block;
-      margin-top: 10px;
-      font-weight: 600;
-    }
-    /* Анимация печати для Hero */
-    .typing {
-      font-weight: 600;
-      color: #0bc5ea;
-      min-height: 24px;
-      font-size: 1.1rem;
-      font-family: monospace;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid #0bc5ea;
-      width: fit-content;
-    }
-  </style>
 </head>
 <body>
 
@@ -143,8 +33,7 @@
       <p class="typing"></p>
       <p>Я студент и начинающий разработчик, интересующийся веб-технологиями, desktop-разработкой и алгоритмами.</p>
       <p>Люблю создавать современные интерфейсы и постоянно развиваюсь в IT.</p>
-      <br>
-      <br>
+      <br><br>
       <a href="#contacts" class="btn">Связаться со мной</a>
     </div>
     <div class="hero-image">
@@ -157,26 +46,32 @@
 <section id="skills">
   <div class="container">
     <h2>Навыки</h2>
+
     <div class="skill">
       <span>Python — 77%</span>
-      <div class="bar"><div style="width:70%"></div></div>
+      <div class="bar"><div style="width:77%"></div></div>
     </div>
+
     <div class="skill">
       <span>Java — 67%</span>
-      <div class="bar"><div style="width:60%"></div></div>
+      <div class="bar"><div style="width:67%"></div></div>
     </div>
+
     <div class="skill">
       <span>C — 52%</span>
-      <div class="bar"><div style="width:50%"></div></div>
+      <div class="bar"><div style="width:52%"></div></div>
     </div>
+
     <div class="skill">
       <span>C++ — 33%</span>
-      <div class="bar"><div style="width:40%"></div></div>
+      <div class="bar"><div style="width:33%"></div></div>
     </div>
+
     <div class="skill">
       <span>JavaScript — 11%</span>
-      <div class="bar"><div style="width:10%"></div></div>
+      <div class="bar"><div style="width:11%"></div></div>
     </div>
+
     <ul class="tags">
       <li>Git</li>
       <li>Linux</li>
@@ -251,6 +146,8 @@
     <!-- Tabs -->
     <div class="tabs">
       <button class="tab-btn active" data-tab="clicker">Кликер</button>
+      <button class="tab-btn" data-tab="reaction">Реакция</button>
+      <button class="tab-btn" data-tab="tictactoe">Крестики-нолики</button>
       <button class="tab-btn" data-tab="adventure">Генератор приключений</button>
       <button class="tab-btn" data-tab="guess">Угадай число</button>
     </div>
@@ -262,6 +159,52 @@
       <button id="click-btn" class="btn">Клик!</button>
       <button id="reset-btn" class="btn">Сбросить</button>
       <p id="clicker-timer">Время: 30</p>
+      <p class="hint">Цель: набрать как можно больше кликов за 30 секунд.</p>
+    </div>
+
+    <!-- Reaction -->
+    <div class="tab-content" id="reaction">
+      <h3>Игра на скорость реакции</h3>
+
+      <div class="stats">
+        <p>Время: <span id="reaction-time-left">30</span> сек</p>
+        <p>Успешных нажатий: <span id="reaction-hits">0</span></p>
+        <p>Средняя реакция: <span id="reaction-avg">—</span></p>
+      </div>
+
+      <button id="reaction-start" class="btn">Старт</button>
+      <button id="reaction-reset" class="btn">Сброс</button>
+
+      <div id="reaction-field">
+        <button id="reaction-target" class="btn">ЖМИ!</button>
+      </div>
+
+      <p id="reaction-result"></p>
+      <p class="hint">Кнопка появляется через 1–5 секунд в случайном месте. Жми как можно быстрее!</p>
+    </div>
+
+    <!-- TicTacToe -->
+    <div class="tab-content" id="tictactoe">
+      <h3>Крестики-нолики</h3>
+
+      <div class="stats">
+        <p>Ход: <span id="ttt-turn">X</span></p>
+        <p>Счёт: X — <span id="ttt-x-wins">0</span> | O — <span id="ttt-o-wins">0</span></p>
+      </div>
+
+      <label class="ttt-toggle">
+        <input type="checkbox" id="ttt-vs-bot" />
+        Играть против компьютера (случайные ходы)
+      </label>
+
+      <div id="ttt-board" class="ttt-board" aria-label="Игровое поле 3 на 3"></div>
+
+      <p id="ttt-status"></p>
+
+      <button id="ttt-restart" class="btn">Перезапуск</button>
+      <button id="ttt-reset-score" class="btn">Сбросить счёт</button>
+
+      <p class="hint">Первый, кто соберёт 3 в ряд — побеждает.</p>
     </div>
 
     <!-- Adventure Generator -->
@@ -316,195 +259,6 @@
 
 <footer>© 2026 Самусев Даниил</footer>
 
-<script>
-  // --- Табы мини-игр ---
-  const tabs = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tabContents.forEach(c => c.classList.remove('active'));
-
-      tab.classList.add('active');
-      document.getElementById(tab.dataset.tab).classList.add('active');
-    });
-  });
-
-  // --- Кликер ---
-  const clickBtn = document.getElementById('click-btn');
-  const resetBtn = document.getElementById('reset-btn');
-  const scoreDisplay = document.getElementById('clicker-score');
-  const timerDisplay = document.getElementById('clicker-timer');
-
-  let score = 0;
-  let timeLeft = 30;
-  let clickerInterval = null;
-  let gameActive = false;
-
-  function startClicker() {
-    if (gameActive) return;
-    gameActive = true;
-    score = 0;
-    timeLeft = 30;
-    scoreDisplay.textContent = score;
-    timerDisplay.textContent = `Время: ${timeLeft}`;
-    clickerInterval = setInterval(() => {
-      timeLeft--;
-      timerDisplay.textContent = `Время: ${timeLeft}`;
-      if (timeLeft <= 0) {
-        clearInterval(clickerInterval);
-        alert(`Время вышло! Ваш счёт: ${score}`);
-        gameActive = false;
-      }
-    }, 1000);
-  }
-
-  clickBtn.addEventListener('click', () => {
-    if (!gameActive) startClicker();
-    if (gameActive && timeLeft > 0) {
-      score++;
-      scoreDisplay.textContent = score;
-      clickBtn.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-    }
-  });
-
-  resetBtn.addEventListener('click', () => {
-    clearInterval(clickerInterval);
-    score = 0;
-    timeLeft = 30;
-    scoreDisplay.textContent = score;
-    timerDisplay.textContent = `Время: ${timeLeft}`;
-    gameActive = false;
-    clickBtn.style.backgroundColor = '';
-  });
-
-  // --- Генератор приключений ---
-  const characters = ['рыцарь', 'маг', 'вор'];
-  const locations = ['тёмный лес', 'заброшенный замок', 'подводное царство'];
-  const villains = ['дракон', 'колдун', 'гоблин'];
-
-  const adventureText = document.getElementById('adventure-text');
-  const adventureBtn = document.getElementById('adventure-btn');
-
-  function generateAdventure() {
-    const character = characters[Math.floor(Math.random() * characters.length)];
-    const location = locations[Math.floor(Math.random() * locations.length)];
-    const villain = villains[Math.floor(Math.random() * villains.length)];
-    const text = `Ваш персонаж — ${character} находится в ${location} и сражается с ${villain}.`;
-    adventureText.textContent = text;
-
-    // Сохраняем в localStorage
-    localStorage.setItem('lastAdventure', text);
-  }
-
-  adventureBtn.addEventListener('click', generateAdventure);
-
-  // При загрузке страницы показываем последнее приключение из localStorage
-  document.addEventListener('DOMContentLoaded', () => {
-    const last = localStorage.getItem('lastAdventure');
-    if (last) adventureText.textContent = last;
-  });
-
-  // --- Игра "Угадай число" ---
-  const guessInput = document.getElementById('guess-input');
-  const guessBtn = document.getElementById('guess-btn');
-  const guessResult = document.getElementById('guess-result');
-  const guessTriesDisplay = document.getElementById('guess-tries');
-  const guessReset = document.getElementById('guess-reset');
-
-  let randomNumber;
-  let triesLeft;
-
-  function initGuessGame() {
-    randomNumber = Math.floor(Math.random() * 100) + 1;
-    triesLeft = 10;
-    guessTriesDisplay.textContent = triesLeft;
-    guessResult.textContent = '';
-    guessInput.value = '';
-    guessInput.disabled = false;
-    guessBtn.disabled = false;
-  }
-
-  guessBtn.addEventListener('click', () => {
-    const guess = parseInt(guessInput.value);
-    if (isNaN(guess) || guess < 1 || guess > 100) {
-      guessResult.textContent = 'Введите число от 1 до 100!';
-      return;
-    }
-    if (triesLeft <= 0) return;
-
-    triesLeft--;
-    guessTriesDisplay.textContent = triesLeft;
-
-    if (guess === randomNumber) {
-      guessResult.textContent = `Поздравляем! Вы угадали число ${randomNumber}! 🎉`;
-      guessInput.disabled = true;
-      guessBtn.disabled = true;
-    } else if (guess < randomNumber) {
-      guessResult.textContent = 'Загаданное число больше.';
-    } else {
-      guessResult.textContent = 'Загаданное число меньше.';
-    }
-
-    if (triesLeft === 0 && guess !== randomNumber) {
-      guessResult.textContent = `Игра окончена. Вы не угадали. Загаданное число было ${randomNumber}.`;
-      guessInput.disabled = true;
-      guessBtn.disabled = true;
-    }
-  });
-
-  guessReset.addEventListener('click', initGuessGame);
-
-  initGuessGame();
-
-  // --- Анимация "печати" для Hero ---
-  const typingP = document.querySelector('.typing');
-  const roles = ['Frontend разработчик', 'UI дизайнер', 'Студент'];
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-
-  function type() {
-    const current = roles[roleIndex];
-    if (!isDeleting) {
-      typingP.textContent = current.slice(0, charIndex + 1);
-      charIndex++;
-      if (charIndex === current.length) {
-        isDeleting = true;
-        setTimeout(type, 1500);
-        return;
-      }
-    } else {
-      typingP.textContent = current.slice(0, charIndex - 1);
-      charIndex--;
-      if (charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-      }
-    }
-    setTimeout(type, isDeleting ? 80 : 120);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    type();
-  });
-
-  // --- Отправка формы контактов ---
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    formStatus.textContent = 'Отправка...';
-
-    // Здесь можно добавить реальную отправку данных на сервер
-    setTimeout(() => {
-      formStatus.textContent = 'Спасибо! Сообщение отправлено.';
-      contactForm.reset();
-    }, 1500);
-  });
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -8,7 +8,8 @@ tabs.forEach(tab => {
     tabContents.forEach(c => c.classList.remove('active'));
 
     tab.classList.add('active');
-    document.getElementById(tab.dataset.tab).classList.add('active');
+    const target = document.getElementById(tab.dataset.tab);
+    if (target) target.classList.add('active');
   });
 });
 
@@ -179,7 +180,7 @@ contactForm.addEventListener('submit', (e) => {
   }, 1200);
 });
 
-// ================== REACTION GAME (Задание 1) ==================
+// ================== REACTION GAME ==================
 const reactionField = document.getElementById("reaction-field");
 const reactionTarget = document.getElementById("reaction-target");
 const reactionStartBtn = document.getElementById("reaction-start");
@@ -200,7 +201,6 @@ let totalReactionMs = 0;
 let lastSpawnAt = 0;
 
 function randInt(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min; }
-
 function hideTarget(){ reactionTarget.style.display = "none"; }
 
 function placeTargetRandom(){
@@ -225,7 +225,7 @@ function updateReactionStats(){
 function scheduleSpawn(){
   if (!reactionGameActive) return;
   hideTarget();
-  const delay = randInt(1000, 5000); // 1..5 сек
+  const delay = randInt(1000, 5000);
 
   clearTimeout(spawnTimeout);
   spawnTimeout = setTimeout(() => {
@@ -299,7 +299,7 @@ reactionTarget.addEventListener("click", () => {
   scheduleSpawn();
 });
 
-// ================== TIC TAC TOE (Задание 2) ==================
+// ================== TIC TAC TOE ==================
 const tttBoardEl = document.getElementById("ttt-board");
 const tttTurnEl = document.getElementById("ttt-turn");
 const tttStatusEl = document.getElementById("ttt-status");
@@ -407,13 +407,12 @@ tttResetScoreBtn.addEventListener("click", tttResetScore);
 tttVsBot.addEventListener("change", () => tttRestart());
 tttRender();
 
-// ================== MAZE (Задание 3) ==================
+// ================== MAZE ==================
 const mazeGridEl = document.getElementById("maze-grid");
 const mazeTimeEl = document.getElementById("maze-time");
 const mazeStatusEl = document.getElementById("maze-status");
 const mazeRestartBtn = document.getElementById("maze-restart");
 
-// 0 — путь, 1 — стена, S — старт, E — выход
 const mazeMap = [
   "111111111111",
   "1S0000000001",
@@ -506,7 +505,6 @@ function canMoveTo(r, c){
 
 function tryMove(dr, dc){
   if (mazeFinished) return;
-
   if (!mazeStarted) mazeStartTimer();
 
   const nr = mazePlayer.r + dr;
@@ -517,9 +515,7 @@ function tryMove(dr, dc){
   mazePlayer = { r: nr, c: nc };
   renderMaze();
 
-  if (nr === mazeExit.r && nc === mazeExit.c) {
-    mazeWin();
-  }
+  if (nr === mazeExit.r && nc === mazeExit.c) mazeWin();
 }
 
 function mazeRestart(){
@@ -534,7 +530,6 @@ function mazeRestart(){
 }
 
 document.addEventListener("keydown", (e) => {
-  // чтобы стрелки не скроллили страницу, когда лабиринт открыт
   const mazeTabActive = document.getElementById("maze").classList.contains("active");
   if (!mazeTabActive) return;
 
@@ -550,5 +545,3 @@ mazeRestartBtn.addEventListener("click", mazeRestart);
 
 parseMaze();
 renderMaze();
-
-

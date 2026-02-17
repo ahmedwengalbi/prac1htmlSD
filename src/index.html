@@ -25,7 +25,6 @@
 
 <main>
 
-<!-- HERO -->
 <section id="home" class="hero">
   <div class="container hero-container">
     <div class="hero-text">
@@ -42,7 +41,6 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <h2>Навыки</h2>
@@ -83,7 +81,6 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
   <div class="container">
     <h2>Образование</h2>
@@ -102,7 +99,6 @@
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="container">
     <h2>Достижения</h2>
@@ -114,7 +110,6 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="container">
     <h2>Проекты</h2>
@@ -143,12 +138,12 @@
   <div class="container">
     <h2>Мини-игры</h2>
 
-    <!-- Tabs -->
     <div class="tabs">
       <button class="tab-btn active" data-tab="clicker">Кликер</button>
       <button class="tab-btn" data-tab="reaction">Реакция</button>
       <button class="tab-btn" data-tab="tictactoe">Крестики-нолики</button>
-      <button class="tab-btn" data-tab="adventure">Генератор приключений</button>
+      <button class="tab-btn" data-tab="maze">Лабиринт</button>
+      <button class="tab-btn" data-tab="adventure">Приключение</button>
       <button class="tab-btn" data-tab="guess">Угадай число</button>
     </div>
 
@@ -168,7 +163,7 @@
 
       <div class="stats">
         <p>Время: <span id="reaction-time-left">30</span> сек</p>
-        <p>Успешных нажатий: <span id="reaction-hits">0</span></p>
+        <p>Успешных: <span id="reaction-hits">0</span></p>
         <p>Средняя реакция: <span id="reaction-avg">—</span></p>
       </div>
 
@@ -197,24 +192,42 @@
         Играть против компьютера (случайные ходы)
       </label>
 
-      <div id="ttt-board" class="ttt-board" aria-label="Игровое поле 3 на 3"></div>
+      <div id="ttt-board" class="ttt-board" aria-label="Поле 3 на 3"></div>
 
       <p id="ttt-status"></p>
 
       <button id="ttt-restart" class="btn">Перезапуск</button>
       <button id="ttt-reset-score" class="btn">Сбросить счёт</button>
-
       <p class="hint">Первый, кто соберёт 3 в ряд — побеждает.</p>
     </div>
 
-    <!-- Adventure Generator -->
+    <!-- Maze -->
+    <div class="tab-content" id="maze">
+      <h3>Лабиринт</h3>
+
+      <div class="stats">
+        <p>Время прохождения: <span id="maze-time">0.0</span> сек</p>
+        <p>Управление: стрелки ↑ ↓ ← →</p>
+      </div>
+
+      <div class="maze-wrap">
+        <div id="maze-grid" class="maze-grid" aria-label="Лабиринт"></div>
+      </div>
+
+      <p id="maze-status"></p>
+
+      <button id="maze-restart" class="btn">Перезапуск</button>
+      <p class="hint">Дойди до выхода (зелёная клетка). Стены — тёмные клетки.</p>
+    </div>
+
+    <!-- Adventure -->
     <div class="tab-content" id="adventure">
       <h3>Генератор приключений</h3>
       <p id="adventure-text">Нажмите "Сгенерировать", чтобы получить приключение</p>
       <button id="adventure-btn" class="btn">Сгенерировать</button>
     </div>
 
-    <!-- Guess Number -->
+    <!-- Guess -->
     <div class="tab-content" id="guess">
       <h3>Угадай число</h3>
       <p>Попыток осталось: <span id="guess-tries">10</span></p>
@@ -223,10 +236,10 @@
       <p id="guess-result"></p>
       <button id="guess-reset" class="btn">Начать заново</button>
     </div>
+
   </div>
 </section>
 
-<!-- CONTACTS -->
 <section id="contacts">
   <div class="container">
     <h2>Контакты</h2>
